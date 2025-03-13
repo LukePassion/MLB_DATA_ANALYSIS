@@ -1,0 +1,41 @@
+2. Which players have the same birthday?
+'1980-01-03','Bradley Keith'
+'1980-01-10','Matthew Stephen'
+'1980-01-12','Robert Edward'
+'1980-01-15','Jeffrey Darrin, Matthew Thomas'
+'1980-01-16','Brooks Litchfield, Jose Alberto'
+'1980-01-17','Thomas Joseph, Michael Gregory'
+'1980-01-20','Franklyn Miguel, Luis'
+'1980-01-25','Phillip Matthew'
+'1980-01-26','Brandon Edward, Antonio Miguel'
+'1980-02-01','Hector R.'
+'1980-02-03','Jared Michael'
+...
+
+3. Create a summary table that shows for each team, what percent of players bat right, left and both
+'ATL','61.8','29.2','8.9'
+'BAL','61.8','29.6','8.6'
+'BOS','61.9','29.3','8.6'
+'CAL','60.6','29.3','10.1'
+'CHA','59.7','33.5','6.8'
+'CHN','63.8','28.5','7.7'
+'CIN','62.6','29.4','8.0'
+'CLE','59.6','29.7','10.8'
+'DET','60.8','28.6','10.6'
+'HOU','62.3','23.9','13.8'
+'KCA','64.3','27.2','8.5'
+...
+
+4. How have average height and weight at debut game changed over the years, and what's the decade-over-decade difference?
+'1870',NULL,NULL
+'1880','0.8704','9.3491'
+'1890','0.4080','0.9088'
+'1900','0.3518','2.5512'
+'1910','0.5936','1.2430'
+'1920','0.0611','-1.0963'
+'1930','0.3865','3.6059'
+'1940','0.6969','5.2398'
+'1950','0.3154','1.9556'
+'1960','0.4755','2.3327'
+'1970','0.2414','0.7502'
+...
