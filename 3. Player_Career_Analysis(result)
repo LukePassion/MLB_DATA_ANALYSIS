@@ -1,0 +1,43 @@
+2. For each player, calculate their age at their first game, their last game, and their career length (all in years). Sort from longest career to shortest career.
+'Nicholas','21','57','35'
+'James Henry','21','54','32'
+'Saturnino Orestes Armas','23','54','31'
+'Charles Timothy','28','58','30'
+'Walter Arlington','20','49','29'
+'James Thomas','20','48','27'
+'Charles Evard','21','48','27'
+'Lynn Nolan','19','46','27'
+'Hugh Ambrose','22','49','27'
+'John Joseph','21','48','27'
+'Adrian Constantine','19','45','26'
+...
+
+
+3. What team did each player play on for their starting and ending years?
+'Kirk Edward','1985','CAL','1996','CHA'
+'Mariano','1985','LAN','1997','NYA'
+'Teodoro Valenzuela','1985','ML4','1994','ML4'
+'Roger Alan','1985','NYN','1996','BAL'
+'Timothy Dean','1985','OAK','1990','CIN'
+'Vincent Maurice','1985','SLN','1997','DET'
+'Paul Andre','1986','ATL','1999','CLE'
+'Edward R.','1986','ATL','1988','ATL'
+'Robert Clifford','1986','ATL','1986','ATL'
+'Charles Edward','1986','CAL','2002','CLE'
+'Wallace Keith','1986','CAL','2001','ANA'
+...
+
+4. How many players started and ended on the same team and also played for over a decade?
+'Ronald Joseph','1986','CHA','1997','CHA'
+'Barry Louis','1986','CIN','2004','CIN'
+'Thomas Michael','1987','ATL','2008','ATL'
+'Ellis Rena','1987','BOS','2004','BOS'
+'Thomas Alan','1987','SLN','1998','SLN'
+'George Kenneth','1989','SEA','2010','SEA'
+'Samuel Peralta','1989','TEX','2007','TEX'
+'David Michael','1990','PHI','2002','PHI'
+'Raymond Lewis','1990','SLN','2004','SLN'
+'Bernabe','1991','NYA','2006','NYA'
+'Patrick George','1991','TOR','2004','TOR'
+...
+
