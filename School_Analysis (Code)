@@ -1,0 +1,36 @@
+-- PART I: SCHOOL ANALYSIS
+-- 1. View the schools and school details tables
+SELECT * FROM schools s LEFT JOIN school_details sd
+ON s.schoolID = sd.schoolID;
+
+
+-- 2. In each decade, how many schools were there that produced players?
+ SELECT ROUND(yearID, -1) AS decade, COUNT(DISTINCT schoolID) AS num_schools
+ FROM schools
+ GROUP BY decade
+ ORDER BY decade;
+
+
+-- 3. What are the names of the top 5 schools that produced the most players?
+ SELECT sd.name_full, COUNT(sc.playerID) AS number_of_players
+ FROM school_details sd LEFT JOIN schools sc
+ ON sd.schoolID = sc.schoolID
+ GROUP BY name_full
+ ORDER BY number_of_players DESC
+ LIMIT 5;
+ 
+ 
+-- 4. For each decade, what were the names of the top 3 schools that produced the most players?
+WITH school_count AS (SELECT ROUND(sc.yearID, -1) AS decade, sd.name_full, COUNT(sc.playerID) AS number_of_players
+                      FROM schools sc LEFT JOIN school_details sd
+                      ON sc.schoolID = sd.schoolID
+					  GROUP BY decade, name_full
+                      ORDER BY decade DESC),
+	 ranked_schools AS (SELECT decade, name_full, number_of_players,
+                        RANK() OVER(PARTITION BY decade ORDER BY number_of_players DESC) AS rank_schools
+                        FROM school_count)
+                        
+SELECT decade, name_full, number_of_players
+FROM ranked_schools
+WHERE rank_schools <=3
+ORDER BY decade DESC, number_of_players DESC; 
