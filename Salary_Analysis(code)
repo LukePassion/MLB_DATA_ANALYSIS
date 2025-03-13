@@ -1,0 +1,42 @@
+-- PART II: SALARY ANALYSIS
+-- 1. View the salaries table
+SELECT * FROM salaries;
+
+-- 2. Return the top 20% of teams in terms of average annual spending
+WITH team_spending AS (SELECT teamID, yearID, AVG(salary) AS avg_salary
+					   FROM salaries
+                       GROUP BY teamID, yearID),
+     ranked_teams AS(SELECT teamID, yearID, avg_salary,
+                     NTILE(5) OVER(ORDER BY avg_salary DESC) AS percentile
+                     FROM team_spending)
+                     
+SELECT teamID, yearID, ROUND(avg_salary / 1000000, 1) AS avg_salary_millions
+FROM ranked_teams
+WHERE percentile = 1;                     
+
+-- 3. For each team, show the cumulative sum of spending over the years
+WITH years_spend AS (SELECT yearID, teamID, SUM(salary) AS sum_salary
+                     FROM salaries
+                     GROUP BY yearID, teamID)
+                     
+SELECT yearID, teamID, sum_salary,
+       SUM(sum_salary) OVER(PARTITION BY teamID ORDER BY yearID) AS cumulative_spending
+       FROM years_spend
+       ORDER BY teamID, yearID;
+       
+       
+-- 4. Return the first year that each team's cumulative spending surpassed 1 billion
+WITH years_spend AS (SELECT yearID, teamID, SUM(salary) AS sum_salary
+                     FROM salaries
+                     GROUP BY yearID, teamID),
+                     
+	 bilions_spending AS (SELECT yearID, teamID, sum_salary,
+                          SUM(sum_salary) OVER(PARTITION BY teamID ORDER BY yearID) AS cumulative_spending
+                          FROM years_spend
+						  ORDER BY teamID, yearID)
+                          
+SELECT DISTINCT teamID,
+                MIN(yearID) OVER(PARTITION BY teamID) AS first_1B
+FROM bilions_spending
+WHERE cumulative_spending > 1000000000
+ORDER BY teamID;                
